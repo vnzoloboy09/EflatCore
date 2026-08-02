@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="EflatCore.vcxproj" Id="bbfdff8c-70ad-494e-a6d7-e8dc4624c7ef" />
+</Solution>
