@@ -151,12 +151,14 @@
     </Manifest>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="core\Application.cpp" />
     <ClCompile Include="core\events\EventDispatcher.cpp" />
     <ClCompile Include="core\log\ConsoleLogger.cpp" />
     <ClCompile Include="core\log\Log.cpp" />
     <ClCompile Include="EflatCore.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="core\Application.h" />
     <ClInclude Include="core\events\EventDispatcher.h" />
     <ClInclude Include="core\events\EventType.h" />
     <ClInclude Include="core\events\IEvent.h" />
