@@ -13,11 +13,13 @@ namespace Eflat {
 	
 	bool Application::Initialize() {
 		EF_LOG_INFO("INIT");
-		return 1;
+		m_Running = true;
+		return m_Running;
 	}
 	
 	void Application::Shutdown() {
 		EF_LOG_WARN("SHUTDOWN");
+		m_Running = false;
 	}
 	
 	int Application::Run() {
