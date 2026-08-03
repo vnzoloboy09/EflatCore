@@ -14,7 +14,6 @@ namespace Eflat {
 		ListenerID RegisterAll(Callback callback) override;
 		void UnRegister(ListenerID id) override;
 		void Dispatch(const IEvent& evnet) override;
-		void DispatchAsync(const IEvent& event) override;
 
 	private:
 		std::mutex m_Mutex;

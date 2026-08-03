@@ -13,7 +13,6 @@ namespace Eflat
 		virtual ListenerID RegisterAll(Callback) = 0;
 		virtual void UnRegister(ListenerID) = 0;
 		virtual void Dispatch(const IEvent&) = 0;
-		virtual void DispatchAsync(const IEvent&) = 0;
 		virtual ~IEventDispatcher() = default;
 	};	
 }

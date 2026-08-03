@@ -54,10 +54,4 @@ namespace Eflat {
 			cb(event);
 		}
 	}
-
-	void EventDispatcher::DispatchAsync(const IEvent& event) {
-		std::async(std::launch::async, [this, &event] {
-			Dispatch(event);
-		});
-	}
 }
