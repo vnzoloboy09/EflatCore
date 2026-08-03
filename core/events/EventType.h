@@ -1,4 +1,5 @@
 #pragma once
+
 #include <cstdint>
 
 namespace Eflat
@@ -6,7 +7,7 @@ namespace Eflat
     enum class EventType : uint32_t {
         // Application
         AppInit,
-        AppShutdown,
+        AppQuit,
         AppPause,
         AppResume,
 

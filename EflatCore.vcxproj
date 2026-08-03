@@ -71,16 +71,20 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>C:\Dev\Cpp\EflatCore\core;$(IncludePath)</IncludePath>
+    <IncludePath>C:\Dev\Cpp\EflatCore\vendor\SDL3\include;C:\Dev\Cpp\EflatCore\core;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Dev\Cpp\EflatCore\vendor\SDL3\lib\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>C:\Dev\Cpp\EflatCore\core;$(IncludePath)</IncludePath>
+    <IncludePath>C:\Dev\Cpp\EflatCore\vendor\SDL3\include;C:\Dev\Cpp\EflatCore\core;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Dev\Cpp\EflatCore\vendor\SDL3\lib\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>C:\Dev\Cpp\EflatCore\core;$(IncludePath)</IncludePath>
+    <IncludePath>C:\Dev\Cpp\EflatCore\vendor\SDL3\include;C:\Dev\Cpp\EflatCore\core;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Dev\Cpp\EflatCore\vendor\SDL3\lib\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>C:\Dev\Cpp\EflatCore\core;$(IncludePath)</IncludePath>
+    <IncludePath>C:\Dev\Cpp\EflatCore\vendor\SDL3\include;C:\Dev\Cpp\EflatCore\core;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Dev\Cpp\EflatCore\vendor\SDL3\lib\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -93,10 +97,14 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>SDL3.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <Manifest>
       <EnableSegmentHeap>true</EnableSegmentHeap>
     </Manifest>
+    <PostBuildEvent>
+      <Command>xcopy /Y /D "$(ProjectDir)vendor\SDL3\lib\x64\SDL3.dll" "$(OutDir)"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -111,10 +119,14 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>SDL3.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <Manifest>
       <EnableSegmentHeap>true</EnableSegmentHeap>
     </Manifest>
+    <PostBuildEvent>
+      <Command>xcopy /Y /D "$(ProjectDir)vendor\SDL3\lib\x64\SDL3.dll" "$(OutDir)"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -127,10 +139,14 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>SDL3.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <Manifest>
       <EnableSegmentHeap>true</EnableSegmentHeap>
     </Manifest>
+    <PostBuildEvent>
+      <Command>xcopy /Y /D "$(ProjectDir)vendor\SDL3\lib\x64\SDL3.dll" "$(OutDir)"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -145,10 +161,14 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>SDL3.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <Manifest>
       <EnableSegmentHeap>true</EnableSegmentHeap>
     </Manifest>
+    <PostBuildEvent>
+      <Command>xcopy /Y /D "$(ProjectDir)vendor\SDL3\lib\x64\SDL3.dll" "$(OutDir)"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="core\Application.cpp" />
@@ -161,6 +181,7 @@
     <ClInclude Include="core\Application.h" />
     <ClInclude Include="core\events\EventDispatcher.h" />
     <ClInclude Include="core\events\EventType.h" />
+    <ClInclude Include="core\events\EventTypes.h" />
     <ClInclude Include="core\events\IEvent.h" />
     <ClInclude Include="core\events\IEventDispatcher.h" />
     <ClInclude Include="core\IApplication.h" />
