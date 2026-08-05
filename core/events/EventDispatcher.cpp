@@ -1,5 +1,4 @@
 #include "EventDispatcher.h"
-#include <future>
 
 namespace Eflat {
 	EventDispatcher::EventDispatcher() = default;
