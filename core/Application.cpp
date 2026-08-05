@@ -81,6 +81,7 @@ namespace Eflat {
 		auto previous = Clock::now();
 		float accumulator = 0.0f;
 		while (m_Running) {
+			m_Input.BeginFrame();
 			PumpEvents();
 
 			auto now = Clock::now();
@@ -96,6 +97,8 @@ namespace Eflat {
 				OnFixedUpdate(m_FixedDt);
 				accumulator -= m_FixedDt;
 			}
+
+			m_Input.EndFrame();
 
 			float alpha = accumulator / m_FixedDt;
 			OnRender(alpha);

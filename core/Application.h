@@ -2,6 +2,7 @@
 
 #include "IApplication.h"
 #include "events/EventDispatcher.h"
+#include "input/InputManager.h"
 
 #include <SDL3/SDL.h>
 
@@ -17,6 +18,7 @@ namespace Eflat {
 		void Shutdown() override;
 		int Run() override;
 		IEventDispatcher& GetEventDispatcher() override { return m_Dispatcher; }
+		const InputManager& GetInput() const { return m_Input; }
 
 	protected:
 		void OnFixedUpdate(float dt) override;
@@ -35,5 +37,7 @@ namespace Eflat {
 
 		SDL_Window* m_Window = nullptr;
 		SDL_Renderer* m_Renderer = nullptr;
+
+		InputManager m_Input;
 	};
 }
