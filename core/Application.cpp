@@ -1,6 +1,7 @@
 #include "Application.h"
 #include "log/Log.h"
 #include "events/EventTypes.h"
+#include "input/InputState.h"
 
 #include <chrono>
 
@@ -64,13 +65,30 @@ namespace Eflat {
 				break;
 
 			case SDL_EVENT_KEY_DOWN:
+				m_Input.OnKeyDown(event.key.scancode);
 				m_Dispatcher.Dispatch(KeyEvent(event.key.scancode, KeyAction::Down));
 				break;
 
 			case SDL_EVENT_KEY_UP:
+				m_Input.OnKeyUp(event.key.scancode);
 				m_Dispatcher.Dispatch(KeyEvent(event.key.scancode, KeyAction::Up));
 				break;
 
+			case SDL_EVENT_MOUSE_MOTION:
+				m_Input.OnMouseMove(event.motion.x, event.motion.y);
+				break;
+
+			case SDL_EVENT_MOUSE_BUTTON_DOWN:
+				m_Input.OnMouseButton(static_cast<MouseButton>(event.button.button - 1), true);
+				break;
+
+			case SDL_EVENT_MOUSE_BUTTON_UP:
+				m_Input.OnMouseButton(static_cast<MouseButton>(event.button.button - 1), false);
+				break;
+
+			case SDL_EVENT_MOUSE_WHEEL:
+				m_Input.OnMouseWheel(event.wheel.x, event.wheel.y);
+				break;
 			default:
 				break;
 			}

@@ -1,5 +1,6 @@
 #include "core/log/Log.h"
 #include "core/Application.h"
+#include "test/input/InputManagerTest.h"
 
 class TestApp : public Eflat::Application {
 public:
@@ -12,6 +13,8 @@ public:
 
 int main()
 {
+    Eflat::RunInputManagerTests();
+
     TestApp app("EflatCore Test", 800, 600);
     if (!app.Initialize())
         return 1;

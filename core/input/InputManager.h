@@ -4,6 +4,7 @@
 #include <string>
 #include <array>
 #include <cstddef>
+#include <unordered_map>
 
 #include "types.h"
 #include "InputState.h"
@@ -11,6 +12,8 @@
 namespace Eflat {
 	class InputManager {
 	public:
+        InputManager();
+
 		void BeginFrame();
         void EndFrame();
 		void OnKeyDown(uint32_t scancode);
@@ -23,12 +26,12 @@ namespace Eflat {
         bool IsKeyPressed(uint32_t scancode) const;
         bool IsKeyReleased(uint32_t scancode) const;
 
-        Vec2 GetMousePos() const;
-        Vec2 GetMouseDelta() const;
+        Vec2 GetMousePos() const { return m_MousePos; }
+        Vec2 GetMouseDelta() const { return m_MouseDelta; }
         bool IsMouseHeld(MouseButton btn) const;
         bool IsMousePressed(MouseButton btn) const;
         bool IsMouseReleased(MouseButton btn) const;
-        float GetScrollY() const;
+        float GetScrollY() const { return m_ScrollYThisFrame; }
 
         void BindAction(std::string name, uint32_t key);
         bool IsActionHeld(std::string_view name) const;
@@ -40,5 +43,6 @@ namespace Eflat {
         Vec2 m_MousePos, m_MouseDelta, m_LastMousePos;
         float m_ScrollY, m_ScrollYThisFrame;
         std::array<KeyState, MAX_MOUSE_BUTTONS> m_MouseStates{};
+        std::unordered_map<std::string, uint32_t> m_ActionMap;
 	};
 }

@@ -174,6 +174,7 @@
     <ClCompile Include="core\Application.cpp" />
     <ClCompile Include="core\events\EventDispatcher.cpp" />
     <ClCompile Include="core\input\InputManager.cpp" />
+    <ClCompile Include="test\input\InputManagerTest.cpp" />
     <ClCompile Include="core\log\ConsoleLogger.cpp" />
     <ClCompile Include="core\log\Log.cpp" />
     <ClCompile Include="EflatCore.cpp" />
@@ -187,6 +188,7 @@
     <ClInclude Include="core\events\IEventDispatcher.h" />
     <ClInclude Include="core\IApplication.h" />
     <ClInclude Include="core\input\InputManager.h" />
+    <ClInclude Include="test\input\InputManagerTest.h" />
     <ClInclude Include="core\input\InputState.h" />
     <ClInclude Include="core\log\ConsoleLogger.h" />
     <ClInclude Include="core\log\ILogger.h" />
