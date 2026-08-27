@@ -38,16 +38,29 @@ namespace Eflat {
 		}
 
 		Vec2& operator+=(const Vec2& other) {
-			x -= other.x;
-			y -= other.y;
+			x += other.x;
+			y += other.y;
 			return *this;
 		}
 	};
 
 	struct Vec3 { float x, y, z; };
-	struct Vec4 { float x, y, z, w; };
+	
+	struct Vec4 { 
+		float x, y, z, w; 
+
+		Vec4(float r = 0.0f, float g = 0.0f, float b = 0.0f, float a = 1.0f) :
+			x(r), y(g), z(b), w(a) { }
+	};
+
 	struct Mat3;
 	struct Mat4;
-	struct Rect { float x, y, w, h; };
+	struct Rect { 
+		float x, y, w, h;
+
+		Rect(float a = 0.0f, float b = 0.0f, float c = 0.0f, float d = 1.0f) :
+			x(a), y(b), w(c), h(d) {
+		}
+	};
 	struct Color { uint8_t r, g, b, a; };
 }
